@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import AuthForm from './components/AuthForm';
-import RobotList from './components/RobotList';
-import RobotDetail from './components/RobotDetail';
 import RobotPage from './components/RobotPage';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
@@ -23,7 +21,7 @@ function App() {
         if (data.status === 'success') {
           setIsAuthenticated(true);
         } else {
-          setIsAuthenticated(false);  // Resetear a false en caso de error
+          setIsAuthenticated(false);
         }
       })
       .catch(error => {
@@ -46,13 +44,11 @@ function App() {
 
   return (
     <Router>
-      {/* Banner */}
       <div className="header-container">
         <h2>Adopta un Robot con Robot Lovers!</h2>
-        <img src="src/robots-banner.png" alt="Robots Banner" className="robots-banner" />
+        <img src="robots-banner.png" alt="Robots Banner" className="robots-banner" />
       </div>
 
-      {/* Rutas principales */}
       <Routes>
         <Route
           path="/"
@@ -64,10 +60,9 @@ function App() {
         />
       </Routes>
 
-      {/* Footer */}
-      <div className="footer">
-        Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers
-      </div>
+      <footer className="footer">
+        <p>Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers</p>
+      </footer>
     </Router>
   );
 }

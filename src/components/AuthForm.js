@@ -1,66 +1,49 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import './AuthForm.css';
+import './AuthForm.css'; // Asegúrate de importar los estilos
 
 function AuthForm({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simular llamada a la función de login
-    fetch('http://localhost:3001/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ login: username, password }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.status === 'success') {
-          setError(false);  // Autenticación exitosa
-          onLogin(username, password);
-        } else {
-          setError(true);  // Error en autenticación
-        }
-      })
-      .catch(() => setError(true)); // En caso de error en el fetch
+    onLogin(username, password);
   };
 
   return (
-    <div className="auth-container">
-      <Form onSubmit={handleSubmit} className={`auth-form ${error ? 'error' : ''}`}>
+    <div className="auth-form-container">
+      <Form onSubmit={handleSubmit} className="auth-form">
+        <Form.Group controlId='auth-title'>
+            <Form.Text><strong>Inicio de sesión</strong></Form.Text>
+        </Form.Group>
         <Form.Group controlId="formUsername">
-          <Form.Label>Nombre de usuario</Form.Label>
+          <Form.Label><strong>Nombre de usuario</strong></Form.Label>
           <Form.Control
+            className="auth-input"
             type="text"
             placeholder="Ingrese su usuario"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className={error ? 'error-input' : ''}
           />
         </Form.Group>
 
         <Form.Group controlId="formPassword">
-          <Form.Label>Contraseña</Form.Label>
+          <Form.Label><strong>Contraseña</strong></Form.Label>
           <Form.Control
+            className="auth-input"
             type="password"
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={error ? 'error-input' : ''}
           />
         </Form.Group>
 
-        {error && <p className="error-message">Error de autenticación. Revise sus credenciales.</p>}
-
-        <div className="button-group">
+        <div>
           <Button variant="primary" type="submit">
             Ingresar
           </Button>
-          <Button variant="danger" type="button">
+          <Button variant="danger" style={{ marginLeft: '10px' }}>
             Cancelar
           </Button>
         </div>
@@ -70,3 +53,4 @@ function AuthForm({ onLogin }) {
 }
 
 export default AuthForm;
+
