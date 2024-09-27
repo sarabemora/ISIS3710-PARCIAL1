@@ -1,0 +1,57 @@
+.robot-page {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .robot-list {
+    width: 50%; /* Coloca la tabla a la izquierda */
+  }
+  
+  .robot-detail {
+    width: 45%; /* Deja un espacio a la derecha para el detalle del robot */
+    padding-left: 20px;
+  }
+  
+  .robot-detail .card {
+    width: 100%;  /* Asegúrate que la card ocupe el espacio disponible */
+  }
+  
+  .robot-detail p {
+    font-style: italic;
+  }
+
+  .table thead th {
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+  
+  .table tbody tr {
+    background-color: white;
+    color: black;
+  }
+
+  .robot-detail .robot-card {
+    background-color: #f0f0f0;  /* Fondo gris */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .robot-name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .robot-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .robot-image img {
+    max-width: 200px;
+    height: auto;
+  }

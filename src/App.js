@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AuthForm from './components/AuthForm';
 import RobotList from './components/RobotList';
 import RobotDetail from './components/RobotDetail';
+import RobotPage from './components/RobotPage';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
@@ -22,7 +23,7 @@ function App() {
         if (data.status === 'success') {
           setIsAuthenticated(true);
         } else {
-          setIsAuthenticated(false);  // Asegúrate de resetear a false en caso de error
+          setIsAuthenticated(false);  // Resetear a false en caso de error
         }
       })
       .catch(error => {
@@ -45,10 +46,13 @@ function App() {
 
   return (
     <Router>
+      {/* Banner */}
       <div className="header-container">
-        <img src="robots-banner.png" alt="Robots Banner" className="robots-banner" />
         <h2>Adopta un Robot con Robot Lovers!</h2>
+        <img src="src/robots-banner.png" alt="Robots Banner" className="robots-banner" />
       </div>
+
+      {/* Rutas principales */}
       <Routes>
         <Route
           path="/"
@@ -56,13 +60,14 @@ function App() {
         />
         <Route
           path="/robots"
-          element={isAuthenticated ? <RobotList robots={robots} /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/robots/:id"
-          element={isAuthenticated ? <RobotDetail robots={robots} /> : <Navigate to="/" />}
+          element={isAuthenticated ? <RobotPage robots={robots} /> : <Navigate to="/" />}
         />
       </Routes>
+
+      {/* Footer */}
+      <div className="footer">
+        Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers
+      </div>
     </Router>
   );
 }

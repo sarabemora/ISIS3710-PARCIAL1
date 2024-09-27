@@ -1,10 +1,27 @@
 .header-container {
   text-align: center;
+  margin: 20px 0;
+}
+
+.header-container h2 {
+  font-size: 36px;
   margin-bottom: 20px;
 }
 
 .robots-banner {
   width: 100%;
-  max-width: 600px;
-  margin-bottom: 20px;
+  max-width: 800px;
+  height: auto;
+}
+
+/* Estilos para el Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  color: #6c757d;
 }
