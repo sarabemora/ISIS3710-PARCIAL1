@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import './RobotDetail.css';
 
 function RobotDetail() {
   const { id } = useParams();
@@ -10,7 +11,7 @@ function RobotDetail() {
       .then(response => response.json())
       .then(data => {
         if (data.status !== 'error') {
-          setRobot(data); // Guardar detalles del robot en el estado
+          setRobot(data);
         } else {
           console.error('Robot no encontrado');
         }
@@ -25,13 +26,17 @@ function RobotDetail() {
   }
 
   return (
-    <div>
-      <h2>{robot.nombre} - {robot.modelo}</h2>
-      <p>Empresa: {robot.empresaFabricante}</p>
-      <p>Año de Fabricación: {robot.añoFabricacion}</p>
-      <p>Capacidad de Procesamiento: {robot.capacidadProcesamiento}</p>
-      <p>Humor: {robot.humor}</p>
-      <img src={robot.imagen} alt={robot.nombre} />
+    <div className="robot-detail-container">
+      <div className="robot-info">
+        <h2>{robot.nombre} - {robot.modelo}</h2>
+        <p>Empresa: {robot.empresaFabricante}</p>
+        <p>Año de Fabricación: {robot.añoFabricacion}</p>
+        <p>Capacidad de Procesamiento: {robot.capacidadProcesamiento}</p>
+        <p>Humor: {robot.humor}</p>
+      </div>
+      <div className="robot-image">
+        <img src={robot.imagen} alt={robot.nombre} />
+      </div>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import AuthForm from './components/AuthForm';
 import RobotList from './components/RobotList';
 import RobotDetail from './components/RobotDetail';
-import Navbar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
@@ -23,7 +22,7 @@ function App() {
         if (data.status === 'success') {
           setIsAuthenticated(true);
         } else {
-          alert('Credenciales incorrectas');
+          setIsAuthenticated(false);  // Asegúrate de resetear a false en caso de error
         }
       })
       .catch(error => {
@@ -46,7 +45,10 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <div className="header-container">
+        <img src="robots-banner.png" alt="Robots Banner" className="robots-banner" />
+        <h2>Adopta un Robot con Robot Lovers!</h2>
+      </div>
       <Routes>
         <Route
           path="/"
