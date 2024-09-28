@@ -5,19 +5,19 @@
   }
   
   .robot-list {
-    width: 75%; /* Coloca la tabla a la izquierda */
+    width: 75%;
     margin-left: 50px;
     text-align: left;
   }
   
   .robot-detail {
-    width: 45%; /* Deja un espacio a la derecha para el detalle del robot */
+    width: 45%;
     padding-left: 20px;
     padding-right: 50px;
   }
   
   .robot-detail .card {
-    width: 100%;  /* Asegúrate que la card ocupe el espacio disponible */
+    width: 100%; 
   }
 
   .table thead th {
@@ -32,7 +32,7 @@
   }
 
   .robot-detail .robot-card {
-    background-color: #D9D9D980; /* Fondo gris */
+    background-color: #D9D9D980; 
     border: 1px solid #000000; 
     padding: 20px;
     border-radius: 1px;

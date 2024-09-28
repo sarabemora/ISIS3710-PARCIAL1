@@ -9,14 +9,13 @@
 .auth-title {
   text-align: center;
   margin-top: 0px;
-  font-size: 2em; /* Ajusta el tamaño según sea necesario */
+  font-size: 2em; 
   margin-bottom: 5px;
 }
 
-/* Container to align buttons */
 .auth-button-container {
   display: flex;
-  justify-content: space-between; /* Pushes the buttons to the edges */
+  justify-content: space-between; 
   margin-top: 5px;
 }
 
@@ -24,14 +23,12 @@
   justify-content: center;
 }
 
-/* Button styles */
 .submit-button, .cancel-button {
   width: 250px;
   height: 50px;
   opacity: 1;
 }
 
-/* Specific styles for each button */
 .submit-button {
   background-color: #003B93;
 }

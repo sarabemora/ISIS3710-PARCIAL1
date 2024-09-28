@@ -22,10 +22,10 @@ function App() {
       const data = await response.json();
       if (data.status === 'success') {
         setIsAuthenticated(true);
-        setError({ username: false, password: false }); // Resetea errores si es exitoso
+        setError({ username: false, password: false }); 
       } else {
         setIsAuthenticated(false);
-        setError({ username: true, password: true }); // Marca errores en ambos campos
+        setError({ username: true, password: true }); 
       }
     } catch (error) {
       console.error('Error:', error);

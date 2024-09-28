@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 
 function RobotDetail({ robot }) {
   if (!robot) {
-    return <p></p>; // No se muestra nada si no hay robot seleccionado
+    return <p></p>; 
   }
 
   return (

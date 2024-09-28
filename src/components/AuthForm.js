@@ -7,12 +7,12 @@ function AuthForm({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState({ username: false, password: false });
-  const [submitted, setSubmitted] = useState(false); // Nueva variable para controlar el envío del formulario
+  const [submitted, setSubmitted] = useState(false); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true); // Marca que el formulario ha sido enviado
-    onLogin(username, password, setError); // Pasa setError al método de login
+    setSubmitted(true); 
+    onLogin(username, password, setError); 
   };
 
   return (
@@ -68,7 +68,6 @@ function AuthForm({ onLogin }) {
           </Button>
         </div>
 
-        {/* Mostrar mensaje general de error solo si el formulario ha sido enviado y hay errores */}
         {submitted && (error.username || error.password) && (
           <div className="error-message">
             <FormattedMessage id="error"/>
