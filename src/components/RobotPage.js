@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Card } from 'react-bootstrap';
 import './RobotPage.css';
+import { FormattedMessage } from 'react-intl';
 
 function RobotPage({ robots }) {
   const [selectedRobot, setSelectedRobot] = useState(null);
@@ -16,9 +17,9 @@ function RobotPage({ robots }) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Modelo</th>
-              <th>Empresa Fabricante</th>
+              <th><FormattedMessage id="nombre"/></th>
+              <th><FormattedMessage id="modelo"/></th>
+              <th><FormattedMessage id="empresaFabricante"/></th>
             </tr>
           </thead>
           <tbody>
@@ -42,11 +43,11 @@ function RobotPage({ robots }) {
           <img src={selectedRobot.imagen} alt={selectedRobot.nombre} />
         </div>
         <Card.Text>
-          <strong>→ Año de Fabricación:</strong> {selectedRobot.añoFabricacion}
+          <strong><FormattedMessage id="anio"/></strong> {selectedRobot.añoFabricacion}
           <br />
-          <strong>→ Capacidad de Procesamiento:</strong> {selectedRobot.capacidadProcesamiento}
+          <strong><FormattedMessage id="procesamiento"/></strong> {selectedRobot.capacidadProcesamiento}
           <br />
-          <strong>→ Humor:</strong> {selectedRobot.humor}
+          <strong><FormattedMessage id="humor"/></strong> {selectedRobot.humor}
         </Card.Text>
       </Card.Body>
     </Card>

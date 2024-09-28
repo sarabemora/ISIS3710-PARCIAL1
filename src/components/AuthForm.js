@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './AuthForm.css';
+import { FormattedMessage } from 'react-intl';
 
 function AuthForm({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -18,9 +19,9 @@ function AuthForm({ onLogin }) {
     <div className="auth-form-container">
       
       <Form onSubmit={handleSubmit} className="auth-form">
-        <h1 className='auth-title'><strong>Inicio de sesión</strong></h1>
+        <h1 className='auth-title'><strong><FormattedMessage id="inicio"/></strong></h1>
         <Form.Group controlId="formUsername">
-          <Form.Label><strong>Nombre de usuario</strong></Form.Label>
+          <Form.Label><strong><FormattedMessage id="usuario"/></strong></Form.Label>
           <Form.Control
             type="text"
             className='auth-input'
@@ -36,7 +37,7 @@ function AuthForm({ onLogin }) {
         </Form.Group>
 
         <Form.Group controlId="formPassword">
-          <Form.Label><strong>Contraseña</strong></Form.Label>
+          <Form.Label><strong><FormattedMessage id="contraseña"/></strong></Form.Label>
           <Form.Control
             type="password"
             className='auth-input'
@@ -57,20 +58,20 @@ function AuthForm({ onLogin }) {
             type="submit"
             className="submit-button"
           >
-            Ingresar
+            <FormattedMessage id="ingresar"/>
           </Button>
           <Button 
             variant="danger" 
             className="cancel-button"
           >
-            Cancelar
+            <FormattedMessage id="cancelar"/>
           </Button>
         </div>
 
         {/* Mostrar mensaje general de error solo si el formulario ha sido enviado y hay errores */}
         {submitted && (error.username || error.password) && (
           <div className="error-message">
-            Error de autenticación. Revise sus credenciales
+            <FormattedMessage id="error"/>
           </div>
         )}
       </Form>

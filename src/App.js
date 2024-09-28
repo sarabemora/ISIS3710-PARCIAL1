@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AuthForm from './components/AuthForm';
 import RobotPage from './components/RobotPage';
 import './App.css';
+import {FormattedMessage} from 'react-intl';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
   return (
     <Router>
       <div className="header-container">
-        <h2>Adopta un Robot con Robot Lovers!</h2>
+        <h2><FormattedMessage id="titulo"/></h2>
         <img src="robots-banner.png" alt="Robots Banner" className="robots-banner" />
       </div>
 
