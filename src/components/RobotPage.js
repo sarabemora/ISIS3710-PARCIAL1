@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Table, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import './RobotPage.css';
 
 function RobotPage({ robots }) {
@@ -13,7 +12,7 @@ function RobotPage({ robots }) {
   return (
     <div className="robot-page">
       <div className="robot-list">
-        <Table striped bordered hover>
+        <Table>
           <thead>
             <tr>
               <th>ID</th>
@@ -25,7 +24,7 @@ function RobotPage({ robots }) {
           <tbody>
             {robots.map((robot) => (
               <tr key={robot.id} onClick={() => handleRobotClick(robot)}>
-                <td>{robot.id}</td>
+                <td><strong>{robot.id}</strong></td>
                 <td>{robot.nombre}</td>
                 <td>{robot.modelo}</td>
                 <td>{robot.empresaFabricante}</td>
@@ -52,7 +51,7 @@ function RobotPage({ robots }) {
       </Card.Body>
     </Card>
   ) : (
-    <p>Selecciona un robot para ver los detalles</p>
+    <p></p>
   )}
 </div>
     </div>

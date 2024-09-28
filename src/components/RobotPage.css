@@ -5,20 +5,18 @@
   }
   
   .robot-list {
-    width: 50%; /* Coloca la tabla a la izquierda */
+    width: 75%; /* Coloca la tabla a la izquierda */
+    margin-left: 50px;
   }
   
   .robot-detail {
     width: 45%; /* Deja un espacio a la derecha para el detalle del robot */
     padding-left: 20px;
+    padding-right: 50px;
   }
   
   .robot-detail .card {
     width: 100%;  /* Asegúrate que la card ocupe el espacio disponible */
-  }
-  
-  .robot-detail p {
-    font-style: italic;
   }
 
   .table thead th {
@@ -33,9 +31,13 @@
   }
 
   .robot-detail .robot-card {
-    background-color: #f0f0f0;  /* Fondo gris */
+    background-color: #D9D9D980; /* Fondo gris */
+    border: 1px solid #000000; 
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 1px;
+    margin-right: 50px;
+    width: 427px;
+    height: 429px;
   }
   
   .robot-name {
@@ -52,6 +54,9 @@
   }
   
   .robot-image img {
-    max-width: 200px;
-    height: auto;
+    border: 1px solid #000000; 
+    border-radius: 1px; 
+    max-width: 100%; 
+    height: 200px; 
+    width: 210px;
   }

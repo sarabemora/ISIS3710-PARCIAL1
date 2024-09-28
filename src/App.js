@@ -8,38 +8,47 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [robots, setRobots] = useState([]);
 
-  const handleLogin = (username, password) => {
-    fetch('http://localhost:3001/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ login: username, password }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.status === 'success') {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
+  const handleLogin = async (username, password, setError) => {
+    try {
+      const response = await fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ login: username, password }),
       });
+      
+      const data = await response.json();
+      if (data.status === 'success') {
+        setIsAuthenticated(true);
+        setError({ username: false, password: false }); // Resetea errores si es exitoso
+      } else {
+        setIsAuthenticated(false);
+        setError({ username: true, password: true }); // Marca errores en ambos campos
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError({ username: true, password: true });
+    }
   };
 
   useEffect(() => {
-    if (isAuthenticated) {
-      fetch('http://localhost:3001/robots')
-        .then(response => response.json())
-        .then(data => {
+    const fetchRobots = async () => {
+      if (isAuthenticated) {
+        try {
+          const response = await fetch('http://localhost:3001/robots');
+          const data = await response.json();
+          for (const robot of data) {
+            robot.imagen = robot.imagen.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+          }
           setRobots(data);
-        })
-        .catch(error => {
+        } catch (error) {
           console.error('Error:', error);
-        });
-    }
+        }
+      }
+    };
+    
+    fetchRobots();
   }, [isAuthenticated]);
 
   return (

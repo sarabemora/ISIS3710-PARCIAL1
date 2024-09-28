@@ -1,17 +1,41 @@
-.auth-form {
-    position: relative;
-  }
-  
-  .error-message {
-    background-color: #CD3232; /* Red background for error message */
-    color: white;
-    padding: 10px;
-    margin-top: 10px;
-    text-align: center;
-  }
+.error-message {
+  color:#CD3232;
+  padding: 2px;
+  margin-top: 5px;
+  text-align: left;
+  font-weight: bold;
+}
 
-  .auth-title {
-    text-align: center;
-    font-size: 100em; /* Ajusta el tamaño según sea necesario */
-    margin-bottom: 20px;
-  }
+.auth-title {
+  text-align: center;
+  margin-top: 0px;
+  font-size: 2em; /* Ajusta el tamaño según sea necesario */
+  margin-bottom: 5px;
+}
+
+/* Container to align buttons */
+.auth-button-container {
+  display: flex;
+  justify-content: space-between; /* Pushes the buttons to the edges */
+  margin-top: 5px;
+}
+
+.auth-form-container {
+  justify-content: center;
+}
+
+/* Button styles */
+.submit-button, .cancel-button {
+  width: 250px;
+  height: 50px;
+  opacity: 1;
+}
+
+/* Specific styles for each button */
+.submit-button {
+  background-color: #003B93;
+}
+
+.cancel-button {
+  background-color: #E75D5D;
+}
