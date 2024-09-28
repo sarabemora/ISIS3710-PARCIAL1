@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Table, Card } from 'react-bootstrap';
 import './RobotPage.css';
-import { FormattedMessage } from 'react-intl';
+import RobotList from './RobotList';
+import RobotDetail from './RobotDetail';
 
 function RobotPage({ robots }) {
   const [selectedRobot, setSelectedRobot] = useState(null);
@@ -12,49 +12,10 @@ function RobotPage({ robots }) {
 
   return (
     <div className="robot-page">
-      <div className="robot-list">
-        <Table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th><FormattedMessage id="nombre"/></th>
-              <th><FormattedMessage id="modelo"/></th>
-              <th><FormattedMessage id="empresaFabricante"/></th>
-            </tr>
-          </thead>
-          <tbody>
-            {robots.map((robot) => (
-              <tr key={robot.id} onClick={() => handleRobotClick(robot)}>
-                <td><strong>{robot.id}</strong></td>
-                <td>{robot.nombre}</td>
-                <td>{robot.modelo}</td>
-                <td>{robot.empresaFabricante}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>
+      <RobotList robots={robots} onRobotClick={handleRobotClick} />
       <div className="robot-detail">
-  {selectedRobot ? (
-    <Card className="robot-card">
-      <Card.Body>
-        <Card.Title className="robot-name">{selectedRobot.nombre}</Card.Title>
-        <div className="robot-image">
-          <img src={selectedRobot.imagen} alt={selectedRobot.nombre} />
-        </div>
-        <Card.Text>
-          <strong><FormattedMessage id="anio"/></strong> {selectedRobot.añoFabricacion}
-          <br />
-          <strong><FormattedMessage id="procesamiento"/></strong> {selectedRobot.capacidadProcesamiento}
-          <br />
-          <strong><FormattedMessage id="humor"/></strong> {selectedRobot.humor}
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  ) : (
-    <p></p>
-  )}
-</div>
+        <RobotDetail robot={selectedRobot} />
+      </div>
     </div>
   );
 }
